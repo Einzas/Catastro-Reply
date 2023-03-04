@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D6E60C13-4A74-44F5-8E4C-210FA04CE6A6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Prueba_Postgres</RootNamespace>
+    <AssemblyName>Prueba_Postgres</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=7.0.2.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.7.0.2\lib\netstandard2.0\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.7.0.0\lib\net462\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.6.0.0\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.7.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.7.0.0\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Channels.7.0.0\lib\net462\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Comerciante\Frm_Comerciante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comerciante\Frm_Comerciante.Designer.cs">
+      <DependentUpon>Frm_Comerciante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Comerciante\Frm_Tipo_Identificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comerciante\Frm_Tipo_Identificacion.Designer.cs">
+      <DependentUpon>Frm_Tipo_Identificacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Comerciante\Frm_Tipo_Ocupante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comerciante\Frm_Tipo_Ocupante.Designer.cs">
+      <DependentUpon>Frm_Tipo_Ocupante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mercado\Frm_Administracion_Zonal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mercado\Frm_Administracion_Zonal.Designer.cs">
+      <DependentUpon>Frm_Administracion_Zonal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mercado\Frm_Asociacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mercado\Frm_Asociacion.Designer.cs">
+      <DependentUpon>Frm_Asociacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mercado\Frm_Canton.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mercado\Frm_Canton.Designer.cs">
+      <DependentUpon>Frm_Canton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mercado\Frm_Establecimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mercado\Frm_Establecimiento.Designer.cs">
+      <DependentUpon>Frm_Establecimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mercado\Frm_Intervencion_Tecnica_E.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mercado\Frm_Intervencion_Tecnica_E.Designer.cs">
+      <DependentUpon>Frm_Intervencion_Tecnica_E.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mercado\Frm_Tipo_I_T_E.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mercado\Frm_Tipo_I_T_E.Designer.cs">
+      <DependentUpon>Frm_Tipo_I_T_E.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mercado\Frm_Lote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mercado\Frm_Lote.Designer.cs">
+      <DependentUpon>Frm_Lote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mercado\Frm_Manzana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mercado\Frm_Manzana.Designer.cs">
+      <DependentUpon>Frm_Manzana.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mercado\Frm_Parroquia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mercado\Frm_Parroquia.Designer.cs">
+      <DependentUpon>Frm_Parroquia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mercado\Frm_Provincia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mercado\Frm_Provincia.Designer.cs">
+      <DependentUpon>Frm_Provincia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mercado\Frm_Tipo_Establecimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mercado\Frm_Tipo_Establecimiento.Designer.cs">
+      <DependentUpon>Frm_Tipo_Establecimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mercado\Frm_Zona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mercado\Frm_Zona.Designer.cs">
+      <DependentUpon>Frm_Zona.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Puesto\Frm_Ayudante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Puesto\Frm_Ayudante.Designer.cs">
+      <DependentUpon>Frm_Ayudante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Puesto\Frm_Bloque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Puesto\Frm_Bloque.Designer.cs">
+      <DependentUpon>Frm_Bloque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Puesto\Frm_Documento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Puesto\Frm_Documento.Designer.cs">
+      <DependentUpon>Frm_Documento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Puesto\Frm_Piso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Puesto\Frm_Piso.Designer.cs">
+      <DependentUpon>Frm_Piso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Puesto\Frm_Reemplazo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Puesto\Frm_Reemplazo.Designer.cs">
+      <DependentUpon>Frm_Reemplazo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Puesto\Frm_Tipo_Area.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Puesto\Frm_Tipo_Area.Designer.cs">
+      <DependentUpon>Frm_Tipo_Area.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Puesto\Frm_Tipo_Documento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Puesto\Frm_Tipo_Documento.Designer.cs">
+      <DependentUpon>Frm_Tipo_Documento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RazonSocioEconomicaDelComerciante\Frm_Discapacidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RazonSocioEconomicaDelComerciante\Frm_Discapacidad.Designer.cs">
+      <DependentUpon>Frm_Discapacidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RazonSocioEconomicaDelComerciante\Frm_Educacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RazonSocioEconomicaDelComerciante\Frm_Educacion.Designer.cs">
+      <DependentUpon>Frm_Educacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RazonSocioEconomicaDelComerciante\Frm_EstadoCivil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RazonSocioEconomicaDelComerciante\Frm_EstadoCivil.Designer.cs">
+      <DependentUpon>Frm_EstadoCivil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RazonSocioEconomicaDelComerciante\Frm_Etnia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RazonSocioEconomicaDelComerciante\Frm_Etnia.Designer.cs">
+      <DependentUpon>Frm_Etnia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RazonSocioEconomicaDelComerciante\Frm_Genero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RazonSocioEconomicaDelComerciante\Frm_Genero.Designer.cs">
+      <DependentUpon>Frm_Genero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RazonSocioEconomicaDelComerciante\Frm_Nacionalidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RazonSocioEconomicaDelComerciante\Frm_Nacionalidad.Designer.cs">
+      <DependentUpon>Frm_Nacionalidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RazonSocioEconomicaDelComerciante\Frm_Razon_Social.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RazonSocioEconomicaDelComerciante\Frm_Razon_Social.Designer.cs">
+      <DependentUpon>Frm_Razon_Social.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Comerciante\Frm_Comerciante.resx">
+      <DependentUpon>Frm_Comerciante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comerciante\Frm_Tipo_Identificacion.resx">
+      <DependentUpon>Frm_Tipo_Identificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comerciante\Frm_Tipo_Ocupante.resx">
+      <DependentUpon>Frm_Tipo_Ocupante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mercado\Frm_Administracion_Zonal.resx">
+      <DependentUpon>Frm_Administracion_Zonal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mercado\Frm_Asociacion.resx">
+      <DependentUpon>Frm_Asociacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mercado\Frm_Canton.resx">
+      <DependentUpon>Frm_Canton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mercado\Frm_Establecimiento.resx">
+      <DependentUpon>Frm_Establecimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mercado\Frm_Intervencion_Tecnica_E.resx">
+      <DependentUpon>Frm_Intervencion_Tecnica_E.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mercado\Frm_Tipo_I_T_E.resx">
+      <DependentUpon>Frm_Tipo_I_T_E.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mercado\Frm_Lote.resx">
+      <DependentUpon>Frm_Lote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mercado\Frm_Manzana.resx">
+      <DependentUpon>Frm_Manzana.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mercado\Frm_Parroquia.resx">
+      <DependentUpon>Frm_Parroquia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mercado\Frm_Provincia.resx">
+      <DependentUpon>Frm_Provincia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mercado\Frm_Tipo_Establecimiento.resx">
+      <DependentUpon>Frm_Tipo_Establecimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mercado\Frm_Zona.resx">
+      <DependentUpon>Frm_Zona.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Puesto\Frm_Ayudante.resx">
+      <DependentUpon>Frm_Ayudante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Puesto\Frm_Bloque.resx">
+      <DependentUpon>Frm_Bloque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Puesto\Frm_Documento.resx">
+      <DependentUpon>Frm_Documento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Puesto\Frm_Piso.resx">
+      <DependentUpon>Frm_Piso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Puesto\Frm_Reemplazo.resx">
+      <DependentUpon>Frm_Reemplazo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Puesto\Frm_Tipo_Area.resx">
+      <DependentUpon>Frm_Tipo_Area.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Puesto\Frm_Tipo_Documento.resx">
+      <DependentUpon>Frm_Tipo_Documento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RazonSocioEconomicaDelComerciante\Frm_Discapacidad.resx">
+      <DependentUpon>Frm_Discapacidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RazonSocioEconomicaDelComerciante\Frm_Educacion.resx">
+      <DependentUpon>Frm_Educacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RazonSocioEconomicaDelComerciante\Frm_EstadoCivil.resx">
+      <DependentUpon>Frm_EstadoCivil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RazonSocioEconomicaDelComerciante\Frm_Etnia.resx">
+      <DependentUpon>Frm_Etnia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RazonSocioEconomicaDelComerciante\Frm_Genero.resx">
+      <DependentUpon>Frm_Genero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RazonSocioEconomicaDelComerciante\Frm_Nacionalidad.resx">
+      <DependentUpon>Frm_Nacionalidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RazonSocioEconomicaDelComerciante\Frm_Razon_Social.resx">
+      <DependentUpon>Frm_Razon_Social.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL_CE\BLL_CE.csproj">
+      <Project>{f5a8f03e-cc12-46c4-a1fa-424135bc6cfb}</Project>
+      <Name>BLL_CE</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets'))" />
+  </Target>
+</Project>
