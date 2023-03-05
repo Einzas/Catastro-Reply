@@ -8,5 +8,6 @@ namespace DAL_CE_Postgresql.Catastro
 {
     class Cls_Reemplazo_DAL
     {
+
     }
 }
