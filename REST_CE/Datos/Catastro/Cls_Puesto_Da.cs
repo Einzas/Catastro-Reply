@@ -36,10 +36,10 @@ namespace REST_CE.Datos.Catastro
                             obj.puesto_frente = dr.GetInt32(10);
                             obj.puesto_fondo = dr.GetInt32(11);
                             
-                            obj.puesto_estado_conservacion = dr.GetString(5);
-                            obj.puesto_acabados = dr.GetString(6);
-                            obj.puesto_paredes = dr.GetString(6);
-                            obj.puesto_remodelacion = dr.GetString(6);
+                            obj.puesto_estado_conservacion = dr.GetString(12);
+                            obj.puesto_acabados = dr.GetString(13);
+                            obj.puesto_paredes = dr.GetString(14);
+                            obj.puesto_remodelacion = dr.GetString(15);
                            
                             lista.Add(obj);
                         }
