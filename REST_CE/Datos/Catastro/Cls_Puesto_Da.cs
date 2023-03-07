@@ -83,6 +83,7 @@ namespace REST_CE.Datos.Catastro
             {
                 using (var cmd = new NpgsqlCommand("UPDATE catastroestablecimiento.cm_puesto SET piso_id=@piso_id, tipo_area_id=@tipo_area_id, comerciante_id=@comerciante_id, ayudante_id=@ayudante_id, reemplazo_id=@reemplazo_id, documento_puesto_id=@documento_puesto_id,puesto_predio=@puesto_predio,puesto_clave_catastral=@puesto_clave_catastral,puesto_area=@puesto_area,puesto_frente=@puesto_frente,puesto_fondo=@puesto_fondo,puesto_estado_conservacion=@puesto_estado_conservacion,puesto_acabados=@puesto_acabados,puesto_paredes=@puesto_paredes,puesto_remodelacion=@puesto_remodelacion WHERE puesto_id = @puesto_id", sql))
                 {
+                    cmd.Parameters.AddWithValue("puesto_id", obj.puesto_id);
                     cmd.Parameters.AddWithValue("piso_id", obj.piso_id);
                     cmd.Parameters.AddWithValue("tipo_area_id", obj.tipo_area_id);
                     cmd.Parameters.AddWithValue("comerciante_id", obj.comerciante_id);

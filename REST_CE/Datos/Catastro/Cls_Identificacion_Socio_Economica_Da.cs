@@ -75,6 +75,7 @@ namespace REST_CE.Datos.Catastro
             {
                 using (var cmd = new NpgsqlCommand("UPDATE catastroestablecimiento.cm_identificacion_socio_economica SET comerciante_id=@comerciante_id,etnia_id=@etnia_id,genero_id=@genero_id,estado_civil_id=@estado_civil_id, nacionalidad_id=@nacionalidad_id,nivel_educacion_id=@nivel_educacion_id,discapacidad_id=@discapacidad_id,identificacion_socio_economica_jefe_familia=@identificacion_socio_economica_jefe_familia,identificacion_socio_economica_dependientes=@identificacion_socio_economica_dependientes,identificacion_socio_economica_numero_dependientes=@identificacion_socio_economica_numero_dependientes,identificacion_socio_economica_parentesco=@identificacion_socio_economica_parentesco,identificacion_socio_economica_estado=@identificacion_socio_economica_estado WHERE identificacion_socio_economica_id = @identificacion_socio_economica_id", sql))
                 {
+                    cmd.Parameters.AddWithValue("identificacion_socio_economica_id", obj.identificacion_socio_economica_id);
                     cmd.Parameters.AddWithValue("comerciante_id", obj.comerciante_id);
                     cmd.Parameters.AddWithValue("etnia_id", obj.etnia_id);
                     cmd.Parameters.AddWithValue("genero_id", obj.genero_id);
